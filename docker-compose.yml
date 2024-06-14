@@ -1,6 +1,12 @@
-name: olmo
+name: loki
 services:
-  model:
-    build: .
+  olmo:
+    build: 
+      dockerfile: Dockerfile.olmo
     ports:
       - 8080:8080
+  llama:
+    build:
+      dockerfile: Dockerfile.llama
+    ports:
+      - 8081:8080

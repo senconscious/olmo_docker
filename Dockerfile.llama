@@ -1,0 +1,5 @@
+FROM ghcr.io/ggerganov/llama.cpp:server
+
+COPY ./models/llama-2-7b-chat.Q4_K_M.gguf models/7B/
+
+CMD ["-c", "2048", "-m", "models/7B/llama-2-7b-chat.Q4_K_M.gguf", "--port", "8080", "--host", "0.0.0.0"]
