@@ -1,13 +1,5 @@
-FROM ubuntu:latest
+FROM ghcr.io/ggerganov/llama.cpp:server
 
-RUN apt update
-RUN apt install python3 python3-pip -y
+COPY ./models/ models/
 
-RUN pip3 install --break-system-packages torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-RUN pip3 install --break-system-packages ai2-olmo
-
-WORKDIR /app
-
-COPY download_pretrained_model.py /app
-RUN ["/usr/bin/python3", "/app/download_pretrained_model.py"]
-CMD ["sleep", "infinity"]
+CMD ["-c", "2048", "-m", "models/7B/OLMo-1.7-7B.IQ3_M.gguf", "--port", "8080", "--host", "0.0.0.0"]
