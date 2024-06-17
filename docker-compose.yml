@@ -21,3 +21,10 @@ services:
       - 8082:8080
     volumes:
       - ./models/qwen2/:/models/
+  gpt2:
+    build:
+      dockerfile: Dockerfile.gpt2
+    ports:
+      - 8083:8080
+    volumes:
+      - ./models/gpt2/:/models/
