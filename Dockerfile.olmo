@@ -1,5 +1,3 @@
 FROM ghcr.io/ggerganov/llama.cpp:server
 
-COPY ./models/olmo.gguf models/7B/
-
-CMD ["-c", "2048", "-m", "models/7B/olmo.gguf", "--port", "8080", "--host", "0.0.0.0"]
+CMD ["-c", "2048", "-m", "models/olmo.gguf", "--port", "8080", "--host", "0.0.0.0"]

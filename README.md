@@ -19,7 +19,12 @@
 # Up and running
 
 1. Download showcased models (See `Showcased models` section)
-2. Place your models into `models` folder in the root of the project
+2. Place your models into `models` folder in the root of the project under `model` name folder:
+
+```
+models/<new_model>/<new_model>.gguf
+```
+
 3. Up project via docker compose
 
 ```sh
@@ -56,9 +61,7 @@ touch Dockerfile.new_model
 ```dockerfile
 FROM ghcr.io/ggerganov/llama.cpp:server
 
-COPY ./models/<new_model_file_name>.gguf models/7B/
-
-CMD ["-c", "2048", "-m", "models/7B/<new_model_file_name>.gguf", "--port", "8080", "--host", "0.0.0.0"]
+CMD ["-c", "2048", "-m", "models/<new_model_file_name>.gguf", "--port", "8080", "--host", "0.0.0.0"]
 ```
 
 5. Add new service to `docker-compose.yml`:
@@ -72,6 +75,8 @@ services:
       dockerfile: Dockerfile.<new_model>
     ports:
       - 8083:8080
+    volumes:
+      - ./models/<new_model>/:/models/
 ```
 
 **Ensure that port is available**
