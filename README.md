@@ -12,6 +12,7 @@
 - [llama-2-7b-chat.Q4_K_M](https://huggingface.co/TheBloke/Llama-2-7B-GGUF/blob/main/llama-2-7b.Q4_K_M.gguf)
 - [qwen2-7b-instruct-q3_k_m](https://huggingface.co/Qwen/Qwen2-7B-Instruct-GGUF/blob/main/qwen2-7b-instruct-q3_k_m.gguf)
 - [gpt2.Q6_K](https://huggingface.co/RichardErkhov/openai-community_-_gpt2-gguf/blob/main/gpt2.Q6_K.gguf)
+- [zephyr-7b-beta.Q3_K_M](https://huggingface.co/TheBloke/zephyr-7B-beta-GGUF/blob/main/zephyr-7b-beta.Q3_K_M.gguf)
 
 # Requirements
 
@@ -38,6 +39,7 @@ Possible services:
 - `llama` for `llama-2-7b-chat.Q4_K_M`. Port: `8081`
 - `qwen2` for `qwen2-7b-instruct-q3_k_m`. Port: `8082`
 - `gpt2` for `gpt2.Q6_K`. Port: `8083`
+- `zephyr` for `zephyr-7b-beta.Q3_K_M`. Port: `8084`
 
 You can also up all services it once (be careful with CPU, memory usage):
 
@@ -76,7 +78,7 @@ services:
     build:
       dockerfile: Dockerfile.<new_model>
     ports:
-      - 8084:8080
+      - 8085:8080
     volumes:
       - ./models/<new_model>/:/models/
 ```

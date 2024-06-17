@@ -28,3 +28,12 @@ services:
       - 8083:8080
     volumes:
       - ./models/gpt2/:/models/
+  zephyr:
+    build:
+      dockerfile: Dockerfile.zephyr
+    ports:
+      - 8084:8080
+    volumes:
+      - ./models/zephyr/:/models/
+
+    
