@@ -10,6 +10,7 @@
 
 - [OLMo-1.7-7B.IQ3_M](https://huggingface.co/nopperl/OLMo-1.7-7B-GGUF/blob/main/OLMo-1.7-7B.IQ3_M.gguf).
 - [llama-2-7b-chat.Q4_K_M](https://huggingface.co/TheBloke/Llama-2-7B-GGUF/blob/main/llama-2-7b.Q4_K_M.gguf)
+- [qwen2-7b-instruct-q3_k_m](https://huggingface.co/Qwen/Qwen2-7B-Instruct-GGUF/blob/main/qwen2-7b-instruct-q3_k_m.gguf)
 
 # Requirements
 
@@ -29,6 +30,7 @@ Possible services:
 
 - `olmo` for `OLMo-1.7-7B.IQ3_M`. Port: `8080`
 - `llama` for `llama-2-7b-chat.Q4_K_M`. Port: `8081`
+- `qwen2` for `qwen2-7b-instruct-q3_k_m`. Port: `8082`
 
 You can also up all services it once (be careful with CPU, memory usage):
 
@@ -69,7 +71,7 @@ services:
     build:
       dockerfile: Dockerfile.<new_model>
     ports:
-      - 8082:8080
+      - 8083:8080
 ```
 
 **Ensure that port is available**
