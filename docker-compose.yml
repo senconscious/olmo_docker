@@ -35,5 +35,12 @@ services:
       - 8084:8080
     volumes:
       - ./models/zephyr/:/models/
+  phi3:
+    build:
+      dockerfile: Dockerfile.phi3
+    ports:
+      - 8085:8080
+    volumes:
+      - ./models/phi3/:/models/
 
     

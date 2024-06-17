@@ -13,6 +13,7 @@
 - [qwen2-7b-instruct-q3_k_m](https://huggingface.co/Qwen/Qwen2-7B-Instruct-GGUF/blob/main/qwen2-7b-instruct-q3_k_m.gguf)
 - [gpt2.Q6_K](https://huggingface.co/RichardErkhov/openai-community_-_gpt2-gguf/blob/main/gpt2.Q6_K.gguf)
 - [zephyr-7b-beta.Q3_K_M](https://huggingface.co/TheBloke/zephyr-7B-beta-GGUF/blob/main/zephyr-7b-beta.Q3_K_M.gguf)
+- [Phi-3-mini-128k-instruct](https://huggingface.co/MoMonir/Phi-3-mini-128k-instruct-GGUF/blob/main/phi-3-mini-128k-instruct.Q6_K.gguf)
 
 # Requirements
 
@@ -40,6 +41,7 @@ Possible services:
 - `qwen2` for `qwen2-7b-instruct-q3_k_m`. Port: `8082`
 - `gpt2` for `gpt2.Q6_K`. Port: `8083`
 - `zephyr` for `zephyr-7b-beta.Q3_K_M`. Port: `8084`
+- `phi3` for `Phi-3-mini-128k-instruct`. Port: `8085`
 
 You can also up all services it once (be careful with CPU, memory usage):
 
@@ -78,7 +80,7 @@ services:
     build:
       dockerfile: Dockerfile.<new_model>
     ports:
-      - 8085:8080
+      - 8086:8080
     volumes:
       - ./models/<new_model>/:/models/
 ```
