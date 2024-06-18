@@ -51,4 +51,12 @@ services:
       - 8086:4000
     volumes:
       - ./models/stable_diffusion/:/models/
+  whisper:
+    build:
+      dockerfile: Dockerfile.whisper
+    ports:
+      - 8087:8080
+    volumes:
+      - ./models/whisper/:/models/
+
     

@@ -15,6 +15,7 @@
 - [zephyr-7b-beta.Q3_K_M](https://huggingface.co/TheBloke/zephyr-7B-beta-GGUF/blob/main/zephyr-7b-beta.Q3_K_M.gguf)
 - [Phi-3-mini-128k-instruct](https://huggingface.co/MoMonir/Phi-3-mini-128k-instruct-GGUF/blob/main/phi-3-mini-128k-instruct.Q6_K.gguf)
 - [sdxl-flash](https://huggingface.co/sd-community/sdxl-flash/blob/main/SDXL-Flash.safetensors). [vae](https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/blob/main/sdxl_vae.safetensors)
+- [whisper](https://ggml.ggerganov.com/)
 
 # Requirements
 
@@ -44,6 +45,7 @@ Possible services:
 - `zephyr` for `zephyr-7b-beta.Q3_K_M`. Port: `8084`
 - `phi3` for `Phi-3-mini-128k-instruct`. Port: `8085`
 - `stable_diffusion` for `sdxl-flash`. Port: `8086`
+- `whisper` for `whisper.cpp`. Port: `8087`
 
 You can also up all services it once (be careful with CPU, memory usage):
 
@@ -82,7 +84,7 @@ services:
     build:
       dockerfile: Dockerfile.<new_model>
     ports:
-      - 8087:8080
+      - 8088:8080
     volumes:
       - ./models/<new_model>/:/models/
 ```
