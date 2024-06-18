@@ -14,6 +14,7 @@
 - [gpt2.Q6_K](https://huggingface.co/RichardErkhov/openai-community_-_gpt2-gguf/blob/main/gpt2.Q6_K.gguf)
 - [zephyr-7b-beta.Q3_K_M](https://huggingface.co/TheBloke/zephyr-7B-beta-GGUF/blob/main/zephyr-7b-beta.Q3_K_M.gguf)
 - [Phi-3-mini-128k-instruct](https://huggingface.co/MoMonir/Phi-3-mini-128k-instruct-GGUF/blob/main/phi-3-mini-128k-instruct.Q6_K.gguf)
+- [sdxl-flash](https://huggingface.co/sd-community/sdxl-flash/blob/main/SDXL-Flash.safetensors). [vae](https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/blob/main/sdxl_vae.safetensors)
 
 # Requirements
 
@@ -42,6 +43,7 @@ Possible services:
 - `gpt2` for `gpt2.Q6_K`. Port: `8083`
 - `zephyr` for `zephyr-7b-beta.Q3_K_M`. Port: `8084`
 - `phi3` for `Phi-3-mini-128k-instruct`. Port: `8085`
+- `stable_diffusion` for `sdxl-flash`. Port: `8086`
 
 You can also up all services it once (be careful with CPU, memory usage):
 
@@ -56,7 +58,7 @@ docker compose up
 # How to add new model as a new service
 
 1. Ensure `llama-cpp` [supports](https://github.com/ggerganov/llama.cpp/tree/master?tab=readme-ov-file#description) new model architecture
-2. Download `gguf`-ed model to your `models` folder
+2. Download `gguf`-ed (or any other format) model to your `models` folder
 3. Create dockerfile for new model:
 
 ```sh
@@ -80,7 +82,7 @@ services:
     build:
       dockerfile: Dockerfile.<new_model>
     ports:
-      - 8086:8080
+      - 8087:8080
     volumes:
       - ./models/<new_model>/:/models/
 ```
@@ -88,3 +90,17 @@ services:
 **Ensure that port is available**
 
 6. Update `Showcased models` and `Possible services` sections in `README.md`
+
+# How to use stable diffusion model
+
+CURL request to generate image: 
+
+```sh
+curl --location 'http://localhost:8086/api/v1/image' \
+--header 'Content-Type: application/json' \
+--data '{
+    "text": "cat"
+}'
+```
+
+Currently only one endpoint available and only `text` parameter supported.

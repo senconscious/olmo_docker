@@ -42,5 +42,13 @@ services:
       - 8085:8080
     volumes:
       - ./models/phi3/:/models/
-
+  stable_diffusion:
+    build:
+      dockerfile: Dockerfile.stable_diffusion
+    environment:
+      - PHX_SERVER=true
+    ports:
+      - 8086:4000
+    volumes:
+      - ./models/stable_diffusion/:/models/
     
