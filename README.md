@@ -1,8 +1,6 @@
-[[_TOC_]]
-
 # Description
 
-**Setup showcase for LLM's in docker for communication via HTTP requests**
+**Setup showcase for running LLM's in docker**
 
 *Setup for CPU. For GPU need to research llama.cpp options*
 
@@ -37,6 +35,10 @@ olmo_run
 ```
 
 # OLD info
+
+<details>
+
+<summary>TODO: need update</summary>
 
 ## Showcased models
 
@@ -134,3 +136,5 @@ curl --location 'http://localhost:8086/api/v1/image' \
 ```
 
 Currently only one endpoint available and only `text` parameter supported.
+
+</details>
