@@ -3,10 +3,11 @@ services:
   olmo:
     build: 
       dockerfile: Dockerfile.olmo
-    ports:
-      - 8080:8080
     volumes:
-      - ./models/olmo/:/models/
+      - ./models/olmo/:/app/models/
+      - ./.bash_aliases:/root/.bash_aliases
+    environment:
+      - LLAMA_CPP_DIR=/app
   llama:
     build:
       dockerfile: Dockerfile.llama

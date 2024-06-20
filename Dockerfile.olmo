@@ -1,3 +1,5 @@
-FROM ghcr.io/ggerganov/llama.cpp:server
+FROM ghcr.io/ggerganov/llama.cpp:full
 
-CMD ["-c", "2048", "-m", "models/olmo.gguf", "--port", "8080", "--host", "0.0.0.0"]
+RUN apt install -y curl && git clone https://github.com/akx/ggify.git
+
+ENTRYPOINT [ "sleep", "infinity" ]

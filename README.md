@@ -6,7 +6,39 @@
 
 *Setup for CPU. For GPU need to research llama.cpp options*
 
-# Showcased models
+# Requirements
+
+- Docker, docker compose with at least 8GB memory allocated to them (and as much CPU as possible)
+
+# How to run OLMo
+
+1. Pull and build llamacpp container:
+
+```sh
+docker compose up -d olmo
+```
+
+2. Attach to container shell:
+
+```sh
+docker exec -it loki-olmo-1 /bin/bash
+```
+
+3. Download model:
+
+```sh
+olmo_download
+```
+
+4. Run chat with model:
+
+```sh
+olmo_run
+```
+
+# OLD info
+
+## Showcased models
 
 - [OLMo-1.7-7B.IQ3_M](https://huggingface.co/nopperl/OLMo-1.7-7B-GGUF/blob/main/OLMo-1.7-7B.IQ3_M.gguf).
 - [llama-2-7b-chat.Q4_K_M](https://huggingface.co/TheBloke/Llama-2-7B-GGUF/blob/main/llama-2-7b.Q4_K_M.gguf)
@@ -17,11 +49,7 @@
 - [sdxl-flash](https://huggingface.co/sd-community/sdxl-flash/blob/main/SDXL-Flash.safetensors). [vae](https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/blob/main/sdxl_vae.safetensors)
 - [whisper](https://ggml.ggerganov.com/)
 
-# Requirements
-
-- Docker, docker compose with at least 8GB memory allocated to them (and as much CPU as possible)
-
-# Up and running
+## Up and running
 
 1. Download showcased models (See `Showcased models` section)
 2. Place your models into `models` folder in the root of the project under `model` name folder:
@@ -53,11 +81,11 @@ You can also up all services it once (be careful with CPU, memory usage):
 docker compose up
 ```
 
-# Usage example
+## Usage example
 
 [Example from llama-cpp docs](https://github.com/ggerganov/llama.cpp/tree/master/examples/server#testing-with-curl)
 
-# How to add new model as a new service
+## How to add new model as a new service
 
 1. Ensure `llama-cpp` [supports](https://github.com/ggerganov/llama.cpp/tree/master?tab=readme-ov-file#description) new model architecture
 2. Download `gguf`-ed (or any other format) model to your `models` folder
@@ -93,7 +121,7 @@ services:
 
 6. Update `Showcased models` and `Possible services` sections in `README.md`
 
-# How to use stable diffusion model
+## How to use stable diffusion model
 
 CURL request to generate image: 
 

@@ -1,0 +1,2 @@
+alias olmo_download='cd /app/models && curl -L https://huggingface.co/mradermacher/OLMo-1.7-7B-hf-GGUF/resolve/main/OLMo-1.7-7B-hf.Q8_0.gguf -o OLMo-1.7-7B-hf.Q8_0.gguf && cd /app'
+alias olmo_run='/app/llama-cli -m /app/models/OLMo-1.7-7B-hf.Q8_0.gguf --color --interactive-first -c 100 --cfg-scale 0.8 -n 100 -e'
