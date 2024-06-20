@@ -8,6 +8,8 @@ services:
       - ./.bash_aliases:/root/.bash_aliases
     environment:
       - LLAMA_CPP_DIR=/app
+      - HF_OLMO_LINK=https://huggingface.co/mradermacher/OLMo-1.7-7B-hf-GGUF/resolve/main/OLMo-1.7-7B-hf.Q8_0.gguf
+      - OLMO_FILE_NAME=OLMo-1.7-7B-hf.Q8_0.gguf
   llama:
     build:
       dockerfile: Dockerfile.llama
